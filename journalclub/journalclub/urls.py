@@ -19,6 +19,9 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
+    # example: /reviews/
     path('reviews/', include('reviews.urls')),
+
+    # exammple /admin/
     path('admin/', admin.site.urls),
 ]
