@@ -6,5 +6,5 @@ urlpatterns = [
     path('', views.index, name='index'),
 
     # example: /reviews/1/
-    path('<int:review_id>/', views.write_review, name='Write Review'),
+    path('<int:review_id>/', views.read_review, name='Write Review'),
 ]
