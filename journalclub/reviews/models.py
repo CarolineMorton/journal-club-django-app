@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Article_Review(models.Model):
 
@@ -40,6 +41,9 @@ class Article_Review(models.Model):
     generalisability = models.TextField()
 
     take_home = models.TextField()
+
+    def get_absolute_url(self):
+        return reverse('review', kwargs={'pk' : self.pk})
 
     def __str__(self):
         return self.citation

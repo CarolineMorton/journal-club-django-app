@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form action="/your-review/" method="post">
+        <p>
+        <label for="citation"> Citation: </label>
+        <textarea id="citation" rows="5" columns="4" name="citation" value="{{ citation }}"></textarea>
+        </p>
+
+        <p>
+        <label for="author"> Author: </label>
+        <textarea id="author" rows="2" name="author" value="{{ author }}"></textarea>
+        </p>
+
+         <p>
+        <label for="year"> Year: </label>
+        <textarea id="year" rows="1" name="year" value="{{ year }}"></textarea>
+        </p>
+
+         <p>
+        <label for="journal"> Journal: </label>
+        <textarea id="journal" rows="2" name="journal" value="{{ journal }}"></textarea>
+        </p>
+
+         <p>
+        <label for="url"> Web Address: </label>
+        <textarea id="url" rows="2" name="url" value="{{ url }}"></textarea>
+        </p>
+
+         <p>
+        <label for="review_date"> Date Reviewed: </label>
+        <textarea id="review_date" rows="2" name="review_date" value="{{ review_date }}"></textarea>
+        </p>
+
+         <p>
+        <label for="study_type"> Study Type: </label>
+        <textarea id="study_type" rows="2" name="study_type" value="{{ study_type }}"></textarea>
+        </p>
+
+         <p>
+        <label for="clarity"> How clear was this article?: </label>
+        <textarea id="clarity" rows="10" name="clarity" value="{{ clarity }}"></textarea>
+        </p>
+
+        <p>
+        <label for="valid_methods"> Were the methods used valid?: </label>
+        <textarea id="valid_methods" rows="10" name="valid_methods" value="{{ valid_methods }}"></textarea>
+        </p>
+
+        <p>
+        <label for="results_importance"> What were the results? How important are these?: </label>
+        <textarea id="results_importance" rows="10" name="results_importance" value="{{ results_importance }}"></textarea>
+        </p>
+
+        <p>
+        <label for="generalisability"> How generalisable are the findings in this population to your clinical work?: </label>
+        <textarea id="generalisability" rows="10" name="generalisability" value="{{ generalisability }}"></textarea>
+        </p>
+
+        <p>
+        <label for="take_home"> What are the key take aways? </label>
+        <textarea id="take_home" rows="10" name="take_home" value="{{ take_home }}"></textarea>
+        </p>
+
+        <input type="submit" value="OK">
+    </form>
+
+</body>
+</html>

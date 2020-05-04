@@ -1,24 +1,29 @@
 # Create your views here.
 
-from django.http import HttpResponse, Http404
-from django.template import loader
-from django.shortcuts import render
+from django.views import generic
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 
 from .models import Article_Review
 
-## views 
-def index(request):
-    latest_review_list = Article_Review.objects.order_by('-review_date')[:5]
-    template = loader.get_template('reviews/index.html')
-    context = {
-        'latest_review_list': latest_review_list,
-    }
-    return render(request, 'reviews/index.html', context)
+## views
+class IndexView(generic.ListView):
+    template_name = 'reviews/index.html'
+    context_object_name = 'latest_review_list'
 
-def read_review(request, review_id):
-    try:
-        review = Article_Review.objects.get(pk=review_id)
-    except Article_Review.DoesNotExist:
-        raise Http404("Question does not exist")
-    return render(request, 'reviews/review.html', {'review': review})
+    def get_queryset(self):
+        ''' returns all previous reviews'''
+        return Article_Review.objects.order_by('-review_date')
+
+class ReadReviewView(generic.DetailView):
+    model = Article_Review
+    template_name = 'reviews/review.html'
+    context_object_name = 'review'
+
+class ReviewCreate(CreateView):
+    model = Article_Review
+    fields = ['citation', 'paper_name', 'author', 'year', 'journal',
+              'url', 'review_date', 'study_type', 'clarity',
+              'valid_methods', 'results_importance', 'generalisability',
+              'take_home']
+    template_name = 'reviews/add-review.html'
